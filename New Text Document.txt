@@ -1,0 +1,25 @@
+Dependency injection: decouple dependency
+
+Drawing Application: Circle draw(), Triangle draw()
+
+circleInstance.draw();
+triangleInstance.draw();
+
+to avoid, application tightly coupled with each shape, can go with polymorphism: Shape <- Triangle, Shape <- Circle.
+Now application needs only Shape
+Don't know on which type of object I am invoking draw method
+
+can have the following method in the Drawing class
+
+public void draw(Shape shape)
+{
+	shape.draw();
+}
+
+But in some place of this class, needs to instantiate Shape's actual object
+
+==> Class member variable to set the dependency: accept, keep and process it as Shape
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Spring is a container of beans or factory of beans
