@@ -22,4 +22,10 @@ But in some place of this class, needs to instantiate Shape's actual object
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Spring is a container of beans or factory of beans
+Spring is a container of beans or factory of beans: to manage objects' life cycle
+
+Spring Bean Factory <- xml (configuration)  => Objects
+
+xml file is placed in resource directory
+
+id for bean : to be accessed by application
