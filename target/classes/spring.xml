@@ -35,6 +35,11 @@
 		<constructor-arg index="1" value="54"></constructor-arg>
 	</bean>
 	
+	<bean id="triangle8" class="com.jeya.spring.Triangle8" name="triangle-name">
+		<constructor-arg index="0" value="Equilateral"></constructor-arg>
+		<constructor-arg index="1" value="67"></constructor-arg>
+	</bean>
+	
 	<bean id="triangleWithPoints" class="com.jeya.spring.TriangleWithPoints">
 		<property name="pointA" ref="zeroPoint"></property>
 		<property name="pointB">

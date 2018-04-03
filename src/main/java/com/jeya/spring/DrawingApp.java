@@ -19,7 +19,7 @@ public class DrawingApp {
 		*/
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-		Triangle triangle = (Triangle) context.getBean("triangle");
+		Triangle triangle = (Triangle) context.getBean("triangle"); // get by id
 		triangle.draw();
 
 		Triangle2 triangle2 = (Triangle2) context.getBean("triangle2");
@@ -37,8 +37,11 @@ public class DrawingApp {
 		Triangle6 triangle6 = (Triangle6) context.getBean("triangle6");
 		triangle6.draw();
 		
-		Triangle7 triangle7 = (Triangle7) context.getBean("triangle-alias");
+		Triangle7 triangle7 = (Triangle7) context.getBean("triangle-alias"); // get by alias
 		triangle7.draw();
+		
+		Triangle8 triangle8 = (Triangle8) context.getBean("triangle-name"); // get by name
+		triangle8.draw();
 		
 		TriangleWithPoints triangleWithPoints = (TriangleWithPoints)context.getBean("triangleWithPoints");
 		triangleWithPoints.draw();
