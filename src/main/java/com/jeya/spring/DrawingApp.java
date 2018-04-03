@@ -37,6 +37,9 @@ public class DrawingApp {
 		Triangle6 triangle6 = (Triangle6) context.getBean("triangle6");
 		triangle6.draw();
 		
+		Triangle7 triangle7 = (Triangle7) context.getBean("triangle-alias");
+		triangle7.draw();
+		
 		TriangleWithPoints triangleWithPoints = (TriangleWithPoints)context.getBean("triangleWithPoints");
 		triangleWithPoints.draw();
 

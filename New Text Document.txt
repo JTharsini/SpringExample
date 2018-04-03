@@ -32,3 +32,7 @@ id for bean : to be accessed by application
 
 value of type is injected to Triangle object in xml file (type is a dependency for triangle class) ==> dependency injection
 
+point2 and point3 can't be used in other places. So better to keep them as inner beans. Zero point is a common point
+inner bean doesn't need an id
+
+aliases : way to have different name for same bean
