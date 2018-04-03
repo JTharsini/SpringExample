@@ -2,9 +2,10 @@ package com.jeya.spring;
 
 public class Triangle {
 	private String type;
-	
-	public void draw()
-	{
+
+	private int height;
+
+	public void draw() {
 		System.out.println(getType() + " triangle drawn");
 	}
 
@@ -14,5 +15,9 @@ public class Triangle {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public int getHeight() {
+		return height;
 	}
 }

@@ -29,3 +29,6 @@ Spring Bean Factory <- xml (configuration)  => Objects
 xml file is placed in resource directory
 
 id for bean : to be accessed by application
+
+value of type is injected to Triangle object in xml file (type is a dependency for triangle class) ==> dependency injection
+
