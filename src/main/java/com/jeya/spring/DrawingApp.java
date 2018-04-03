@@ -19,36 +19,80 @@ public class DrawingApp {
 		*/
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+		//getByIdDependencyInjection(context);
+		//getByIdConstructorInjection(context);
+		//getByAlias(context);
+		//getByName(context);
+		//injectingObjects(context);
+		//collectionsAsAttributes(context);
+		autoWireByName(context);
+		((ClassPathXmlApplicationContext) context).close();
+	}
+
+	private static void autoWireByName(ApplicationContext context) {
+		TriangleWithPoints3 triangleWithPoints3 = (TriangleWithPoints3) context.getBean("triangleWithPoints3");
+		triangleWithPoints3.draw();
+	}
+
+	private static void collectionsAsAttributes(ApplicationContext context) {
+		TriangleWithPoints2 triangleWithPoints2 = (TriangleWithPoints2) context.getBean("triangleWithPoints2");
+		triangleWithPoints2.draw();
+	}
+
+	private static void injectingObjects(ApplicationContext context) {
+		TriangleWithPoints triangleWithPoints = (TriangleWithPoints) context.getBean("triangleWithPoints");
+		triangleWithPoints.draw();
+	}
+
+	private static void getByName(ApplicationContext context) {
+		Triangle8 triangle8 = (Triangle8) context.getBean("triangle-name");
+		triangle8.draw();
+	}
+
+	private static void getByAlias(ApplicationContext context) {
+		Triangle7 triangle7 = (Triangle7) context.getBean("triangle-alias");
+		triangle7.draw();
+	}
+
+	// Set Attribute By Setter
+	private static void getByIdDependencyInjection(ApplicationContext context) {
 		Triangle triangle = (Triangle) context.getBean("triangle"); // get by id
 		triangle.draw();
+	}
 
-		Triangle2 triangle2 = (Triangle2) context.getBean("triangle2");
-		triangle2.draw();
+	private static void getByIdConstructorInjection(ApplicationContext context) {
+		constructorInjectionWithSingleArgumentConstructor(context);
+		constructorInjectionWithTwoConstructorsWithDifferentNumberOfArguments(context);
+		constructorInjectionWithTwoConstructorsWithSameNumberOfArgumentsSetPrimitiveValue(context);
+		constructorInjectionWithTwoConstructorsWithSameNumberOfArgumentsSetObjectValue(context);
+		constructorInjectionUsingIndex(context);
+	}
 
-		Triangle3 triangle3 = (Triangle3) context.getBean("triangle3");
-		triangle3.draw();
-		
-		Triangle4 triangle4 = (Triangle4) context.getBean("triangle4");
-		triangle4.draw();
-		
-		Triangle5 triangle5 = (Triangle5) context.getBean("triangle5");
-		triangle5.draw();
-		
+	private static void constructorInjectionUsingIndex(ApplicationContext context) {
 		Triangle6 triangle6 = (Triangle6) context.getBean("triangle6");
 		triangle6.draw();
-		
-		Triangle7 triangle7 = (Triangle7) context.getBean("triangle-alias"); // get by alias
-		triangle7.draw();
-		
-		Triangle8 triangle8 = (Triangle8) context.getBean("triangle-name"); // get by name
-		triangle8.draw();
-		
-		TriangleWithPoints triangleWithPoints = (TriangleWithPoints)context.getBean("triangleWithPoints");
-		triangleWithPoints.draw();
-		
-		TriangleWithPoints2 triangleWithPoints2 = (TriangleWithPoints2)context.getBean("triangleWithPoints2");
-		triangleWithPoints2.draw();
+	}
 
-		((ClassPathXmlApplicationContext) context).close();
+	private static void constructorInjectionWithTwoConstructorsWithSameNumberOfArgumentsSetObjectValue(
+			ApplicationContext context) {
+		Triangle5 triangle5 = (Triangle5) context.getBean("triangle5");
+		triangle5.draw();
+	}
+
+	private static void constructorInjectionWithTwoConstructorsWithSameNumberOfArgumentsSetPrimitiveValue(
+			ApplicationContext context) {
+		Triangle4 triangle4 = (Triangle4) context.getBean("triangle4");
+		triangle4.draw();
+	}
+
+	private static void constructorInjectionWithTwoConstructorsWithDifferentNumberOfArguments(
+			ApplicationContext context) {
+		Triangle3 triangle3 = (Triangle3) context.getBean("triangle3");
+		triangle3.draw();
+	}
+
+	private static void constructorInjectionWithSingleArgumentConstructor(ApplicationContext context) {
+		Triangle2 triangle2 = (Triangle2) context.getBean("triangle2");
+		triangle2.draw();
 	}
 }

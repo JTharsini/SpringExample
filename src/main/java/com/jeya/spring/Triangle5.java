@@ -5,11 +5,6 @@ public class Triangle5 {
 
 	private int height;
 
-	public Triangle5(String type, int height) {
-		this.type = type;
-		this.height = height;
-	}
-
 	public Triangle5(String type) {
 		this.type = type;
 	}
