@@ -40,3 +40,8 @@ aliases : way to have different name for same bean
 id or name or aliase : best practice - id
 
 ref can be id or name or alias, to strict with id ref use idref : not available in latest versions
+
+-----------------------------------------------------------------------------------------------------------------------
+
+List<Point> is specified as list in spring.xml : Spring will cast them to List<Point> ie, suitable generic type
+

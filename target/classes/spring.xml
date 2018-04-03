@@ -56,6 +56,26 @@
 		</property>
 	</bean>
 	
+	<bean id="triangleWithPoints2" class="com.jeya.spring.TriangleWithPoints2">
+		<property name="points">
+			<list>
+				<ref bean="zeroPoint" />
+				<ref bean="point2" />
+				<ref bean="point3" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="point2" class="com.jeya.spring.Point">
+		<property name="x" value="-20"></property>
+		<property name="y" value="0"></property>
+	</bean>
+	
+	<bean id="point3" class="com.jeya.spring.Point">
+		<property name="x" value="20"></property>
+		<property name="y" value="0"></property>
+	</bean>
+	
 	<bean id="zeroPoint" class="com.jeya.spring.Point">
 		<property name="x" value="0"></property>
 		<property name="y" value="0"></property>
