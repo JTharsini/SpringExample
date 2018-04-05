@@ -52,3 +52,8 @@ Autowiring intelligently guess which is the reference and reduce configuration
 If names of the beans are same as names of a class's member variables, we can ask Spring to autowire those values by name
 Bean with id triangleWithPoints3 is autowired
 
+by default autowiring is off
+
+autowiring problem: hard to debug
+----------------------------------------------------------------------------------------------------------------------
+

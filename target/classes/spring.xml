@@ -117,5 +117,8 @@
 		<property name="cityName" value="Chavakachcheri"></property>
 	</bean>
 	
+	<bean id="triangleWithPoints4" class="com.jeya.spring.TriangleWithPoints4" autowire="constructor">
+	</bean>
+	
 	<alias name="triangle7" alias="triangle-alias"></alias>
 </beans>
