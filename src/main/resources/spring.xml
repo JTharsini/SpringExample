@@ -3,11 +3,11 @@
     "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 
 <beans>
-	<bean id="triangle" class="com.jeya.spring.Triangle">
+	<bean id="triangle" class="com.jeya.spring.Triangle" scope="singleton"> <!-- no need to specify here : since singleton is the default scope -->
 		<property name="type" value="Equilateral"></property>		<!-- by setter -->
 	</bean>
 
-	<bean id="triangle2" class="com.jeya.spring.Triangle2">
+	<bean id="triangle2" class="com.jeya.spring.Triangle2" scope="prototype">
 		<constructor-arg value="Equilateral"></constructor-arg>	<!-- by constructor -->
 	</bean>
 

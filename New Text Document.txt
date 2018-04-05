@@ -57,3 +57,18 @@ by default autowiring is off
 autowiring problem: hard to debug
 ----------------------------------------------------------------------------------------------------------------------
 
+By default, when Application context is initialized, it reads xml file and creates Spring beans. We can configure so that it creates bean, when getBean() is invoked.
+
+Bean scopes:
+
+Basic:
+By default Singleton - only one instance per Spring container.
+Prototype - new bean is created with every request or reference. (ref: zero point is connected by reference)
+
+Web-aware context bean scopes:
+Request - New bean per request
+Session - New bean per session
+Global session - New bean per global Http session (portlet context)
+
+Single JVM -> Multiple Spring container is possible -> One instance per container in case of singleton
+
