@@ -145,5 +145,22 @@
 		<property name="pointA" ref="pointD"></property>
 	</bean>
 	
+	<bean id="triangleWithPoints8" class="com.jeya.spring.TriangleWithPoints8">
+		<property name="points">
+			<list>
+				<ref bean="pointA"></ref>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="triangleInherited8" class="com.jeya.spring.TriangleWithPoints8" parent="triangleWithPoints8">
+		<property name="points">
+			<list>
+				<ref bean="pointB"></ref>
+				<ref bean="pointC"></ref>
+			</list>
+		</property>
+	</bean>
+	
 	<alias name="triangle7" alias="triangle-alias"></alias>
 </beans>
