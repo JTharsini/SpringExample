@@ -32,8 +32,15 @@ public class DrawingApp {
 		//beanNameAware(context);
 		//beanDefinitionInheritance(context);
 		//beanDefinitionInheritanceWithCollectionOverride(context);
-		beanDefinitionInheritanceWithCollectionMerge(context);
+		//beanDefinitionInheritanceWithCollectionMerge(context);
+		beanDefinitionInheritanceParentClassAbstract(context);
 		((ClassPathXmlApplicationContext) context).close();
+	}
+
+	private static void beanDefinitionInheritanceParentClassAbstract(ApplicationContext context) {
+		System.out.println("***************************************************************************************");
+		//TriangleWithPoints10 triangleWithPoints10 = (TriangleWithPoints10) context.getBean("triangleWithPoints10");
+		//Exception in thread "main" org.springframework.beans.factory.BeanIsAbstractException: Error creating bean with name 'triangleWithPoints10': Bean definition is abstract
 	}
 
 	private static void beanDefinitionInheritanceWithCollectionMerge(ApplicationContext context) {
