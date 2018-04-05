@@ -123,5 +123,8 @@
 	<bean id="triangleWithPoints5" class="com.jeya.spring.TriangleWithPoints5">
 	</bean>
 	
+	<bean id="triangleWithPoints6" class="com.jeya.spring.TriangleWithPoints6">
+	</bean>
+	
 	<alias name="triangle7" alias="triangle-alias"></alias>
 </beans>

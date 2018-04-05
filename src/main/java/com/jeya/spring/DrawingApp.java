@@ -28,8 +28,13 @@ public class DrawingApp {
 		//autoWireByName(context);
 		//autoWireByType(context);
 		//autoWireByConstructor(context);
-		applicationContextAware(context);
+		//applicationContextAware(context);
+		beanNameAware(context);
 		((ClassPathXmlApplicationContext) context).close();
+	}
+
+	private static void beanNameAware(ApplicationContext context) {
+		TriangleWithPoints6 triangleWithPoints6 = (TriangleWithPoints6) context.getBean("triangleWithPoints6");
 	}
 
 	private static void applicationContextAware(ApplicationContext context) {

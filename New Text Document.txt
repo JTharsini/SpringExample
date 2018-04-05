@@ -82,3 +82,6 @@ when container is initialized.
 ==> need access for the application context to create multiple instances for prototype.
 get access to application context by implementing ApplicationContextAware interface.
 
+-----------------------------------------------------------------------------------------------------------------------
+
+To get the name of a bean in xml, need to implement BeanNameAware interface.
