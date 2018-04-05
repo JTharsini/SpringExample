@@ -2,7 +2,7 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
     "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 
-<beans>
+<beans default-init-method="myInit" default-destroy-method="myDestroy"> <!-- by this we are saying for all beans if this methods are available do init and destroy method calls -->
 	<bean id="triangle" class="com.jeya.spring.Triangle" scope="singleton"> <!-- no need to specify here : since singleton is the default scope -->
 		<property name="type" value="Equilateral"></property>		<!-- by setter -->
 	</bean>
@@ -203,6 +203,18 @@
 	</bean>
 	
 	<bean id="triangleWithPoints12" class="com.jeya.spring.TriangleWithPoints12">
+		<property name="pointB" ref="pointB"></property>
+		<property name="pointA" ref="pointA"></property>
+		<property name="pointC" ref="pointC"></property>
+	</bean>
+	
+	<bean id="triangleWithPoints13" class="com.jeya.spring.TriangleWithPoints13" init-method="myInit">
+		<property name="pointB" ref="pointB"></property>
+		<property name="pointA" ref="pointA"></property>
+		<property name="pointC" ref="pointC"></property>
+	</bean>
+	
+	<bean id="triangleWithPoints14" class="com.jeya.spring.TriangleWithPoints14" destroy-method="myDestroy">
 		<property name="pointB" ref="pointB"></property>
 		<property name="pointA" ref="pointA"></property>
 		<property name="pointC" ref="pointC"></property>

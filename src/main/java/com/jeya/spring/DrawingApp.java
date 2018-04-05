@@ -47,7 +47,19 @@ public class DrawingApp {
 	private static void callBackMethods(AbstractApplicationContext context) {
 		System.out.println("***************************************************************************************");
 		//thingsToDoWhenInitializingBean(context);
-		thingsToDoWhenDisposingBean(context);
+		//thingsToDoWhenDisposingBean(context);
+		//thingsToDoWhenInitializingBeanByXml(context);
+		thingsToDoWhenDestroyingBeanByXml(context);
+	}
+
+	private static void thingsToDoWhenDestroyingBeanByXml(AbstractApplicationContext context) {
+		TriangleWithPoints14 triangleWithPoints14 = (TriangleWithPoints14) context.getBean("triangleWithPoints14");
+		triangleWithPoints14.draw();
+	}
+
+	private static void thingsToDoWhenInitializingBeanByXml(AbstractApplicationContext context) {
+		TriangleWithPoints13 triangleWithPoints13 = (TriangleWithPoints13) context.getBean("triangleWithPoints13");
+		triangleWithPoints13.draw();
 	}
 
 	private static void thingsToDoWhenDisposingBean(AbstractApplicationContext context) {
