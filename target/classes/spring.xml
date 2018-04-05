@@ -196,5 +196,17 @@
 		</property>
 	</bean>
 	
+	<bean id="triangleWithPoints11" class="com.jeya.spring.TriangleWithPoints11">
+		<property name="pointB" ref="pointB"></property>
+		<property name="pointA" ref="pointA"></property>
+		<property name="pointC" ref="pointC"></property>
+	</bean>
+	
+	<bean id="triangleWithPoints12" class="com.jeya.spring.TriangleWithPoints12">
+		<property name="pointB" ref="pointB"></property>
+		<property name="pointA" ref="pointA"></property>
+		<property name="pointC" ref="pointC"></property>
+	</bean>
+	
 	<alias name="triangle7" alias="triangle-alias"></alias>
 </beans>

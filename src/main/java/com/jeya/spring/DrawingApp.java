@@ -1,6 +1,7 @@
 package com.jeya.spring;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class DrawingApp {
@@ -18,7 +19,8 @@ public class DrawingApp {
 		BeanFactory is suitable only when resources are so crucial
 		*/
 		
-		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+		context.registerShutdownHook();
 		//getByIdDependencyInjection(context);
 		//getByIdConstructorInjection(context);
 		//getByAlias(context);
@@ -30,11 +32,32 @@ public class DrawingApp {
 		//autoWireByConstructor(context);
 		//applicationContextAware(context);
 		//beanNameAware(context);
+		//beanDefinitionInheritancea(context);
+		callBackMethods(context);
+		((ClassPathXmlApplicationContext) context).close(); // suitable only for desktop application
+	}
+
+	private static void beanDefinitionInheritancea(AbstractApplicationContext context) {
 		//beanDefinitionInheritance(context);
 		//beanDefinitionInheritanceWithCollectionOverride(context);
 		//beanDefinitionInheritanceWithCollectionMerge(context);
-		beanDefinitionInheritanceParentClassAbstract(context);
-		((ClassPathXmlApplicationContext) context).close();
+		//beanDefinitionInheritanceParentClassAbstract(context);
+	}
+
+	private static void callBackMethods(AbstractApplicationContext context) {
+		System.out.println("***************************************************************************************");
+		//thingsToDoWhenInitializingBean(context);
+		thingsToDoWhenDisposingBean(context);
+	}
+
+	private static void thingsToDoWhenDisposingBean(AbstractApplicationContext context) {
+		TriangleWithPoints12 triangleWithPoints12 = (TriangleWithPoints12) context.getBean("triangleWithPoints12");
+		triangleWithPoints12.draw();
+	}
+
+	private static void thingsToDoWhenInitializingBean(AbstractApplicationContext context) {
+		TriangleWithPoints11 triangleWithPoints11 = (TriangleWithPoints11) context.getBean("triangleWithPoints11");
+		triangleWithPoints11.draw();
 	}
 
 	private static void beanDefinitionInheritanceParentClassAbstract(ApplicationContext context) {
