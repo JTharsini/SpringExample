@@ -31,8 +31,16 @@ public class DrawingApp {
 		//applicationContextAware(context);
 		//beanNameAware(context);
 		//beanDefinitionInheritance(context);
-		beanDefinitionInheritanceWithCollectionOverride(context);
+		//beanDefinitionInheritanceWithCollectionOverride(context);
+		beanDefinitionInheritanceWithCollectionMerge(context);
 		((ClassPathXmlApplicationContext) context).close();
+	}
+
+	private static void beanDefinitionInheritanceWithCollectionMerge(ApplicationContext context) {
+		System.out.println("***************************************************************************************");
+		TriangleWithPoints9 triangleWithPoints9 = (TriangleWithPoints9) context.getBean("triangleInherited9");
+		triangleWithPoints9.draw();
+		// child list elements are merged with parent definition list
 	}
 
 	private static void beanDefinitionInheritanceWithCollectionOverride(ApplicationContext context) {
