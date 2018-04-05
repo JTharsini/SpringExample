@@ -99,5 +99,23 @@
 		<property name="y" value="0"></property>
 	</bean>
 	
+	<bean id="user" class="com.jeya.spring.User" autowire="byType">
+	</bean>
+	
+	<bean id="login" class="com.jeya.spring.Login">
+		<property name="name" value="Login Name"></property>
+	</bean>
+	
+	<bean id="age" class="com.jeya.spring.Age">
+		<property name="age" value="15"></property>
+		<property name="ageGroup" value="teenage"></property>
+	</bean>
+	
+	<bean id="address" class="com.jeya.spring.Address">
+		<property name="houseNumber" value="1/2"></property>
+		<property name="streetName" value="Police station road"></property>
+		<property name="cityName" value="Chavakachcheri"></property>
+	</bean>
+	
 	<alias name="triangle7" alias="triangle-alias"></alias>
 </beans>

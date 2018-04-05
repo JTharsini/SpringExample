@@ -25,8 +25,14 @@ public class DrawingApp {
 		//getByName(context);
 		//injectingObjects(context);
 		//collectionsAsAttributes(context);
-		autoWireByName(context);
+		//autoWireByName(context);
+		autoWireByType(context);
 		((ClassPathXmlApplicationContext) context).close();
+	}
+
+	private static void autoWireByType(ApplicationContext context) {
+		User user = (User) context.getBean("user");
+		user.print();
 	}
 
 	private static void autoWireByName(ApplicationContext context) {
