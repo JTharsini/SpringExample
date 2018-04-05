@@ -19,7 +19,7 @@ public class DrawingApp {
 		BeanFactory is suitable only when resources are so crucial
 		*/
 		
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring2.xml");
 		context.registerShutdownHook();
 		//getByIdDependencyInjection(context);
 		//getByIdConstructorInjection(context);
@@ -33,7 +33,7 @@ public class DrawingApp {
 		//applicationContextAware(context);
 		//beanNameAware(context);
 		//beanDefinitionInheritancea(context);
-		callBackMethods(context);
+		//callBackMethods(context);
 		((ClassPathXmlApplicationContext) context).close(); // suitable only for desktop application
 	}
 
@@ -49,7 +49,7 @@ public class DrawingApp {
 		//thingsToDoWhenInitializingBean(context);
 		//thingsToDoWhenDisposingBean(context);
 		//thingsToDoWhenInitializingBeanByXml(context);
-		thingsToDoWhenDestroyingBeanByXml(context);
+		//thingsToDoWhenDestroyingBeanByXml(context);
 	}
 
 	private static void thingsToDoWhenDestroyingBeanByXml(AbstractApplicationContext context) {
