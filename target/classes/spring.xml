@@ -99,6 +99,11 @@
 		<property name="y" value="0"></property>
 	</bean>
 	
+	<bean id="pointD" class="com.jeya.spring.Point" scope="prototype">
+		<property name="x" value="0"></property>
+		<property name="y" value="46"></property>
+	</bean>
+	
 	<bean id="user" class="com.jeya.spring.User" autowire="byType">
 	</bean>
 	
@@ -121,9 +126,23 @@
 	</bean>
 	
 	<bean id="triangleWithPoints5" class="com.jeya.spring.TriangleWithPoints5">
-	</bean>
+	</bean>		
 	
 	<bean id="triangleWithPoints6" class="com.jeya.spring.TriangleWithPoints6">
+	</bean>
+	
+	<bean id="triangleWithPoints7" class="com.jeya.spring.TriangleWithPoints7">
+		<property name="pointA" ref="pointA"></property>
+	</bean>
+	
+	<bean id="triangleInherited1" class="com.jeya.spring.TriangleWithPoints7" parent="triangleWithPoints7">
+		<property name="pointB" ref="pointB"></property>
+		<property name="pointC" ref="pointC"></property>
+	</bean>
+	
+	<bean id="triangleInherited2" class="com.jeya.spring.TriangleWithPoints7" parent="triangleWithPoints7">
+		<property name="pointB" ref="pointB"></property>
+		<property name="pointA" ref="pointD"></property>
 	</bean>
 	
 	<alias name="triangle7" alias="triangle-alias"></alias>

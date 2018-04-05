@@ -85,3 +85,9 @@ get access to application context by implementing ApplicationContextAware interf
 -----------------------------------------------------------------------------------------------------------------------
 
 To get the name of a bean in xml, need to implement BeanNameAware interface.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Bean definition inheritance : inherit common behaviors in bean definition.(Templating)
+in inherited one, we can override or add new configuration.
+

@@ -29,8 +29,21 @@ public class DrawingApp {
 		//autoWireByType(context);
 		//autoWireByConstructor(context);
 		//applicationContextAware(context);
-		beanNameAware(context);
+		//beanNameAware(context);
+		beanDefinitionInheritance(context);
 		((ClassPathXmlApplicationContext) context).close();
+	}
+
+	private static void beanDefinitionInheritance(ApplicationContext context) {
+		System.out.println("***************************************************************************************");
+		
+		TriangleWithPoints7 triangleWithPoints71 = (TriangleWithPoints7) context.getBean("triangleInherited1");
+		triangleWithPoints71.draw();
+		
+		System.out.println("***************************************************************************************");
+		
+		TriangleWithPoints7 triangleWithPoints72 = (TriangleWithPoints7) context.getBean("triangleInherited2");
+		triangleWithPoints72.draw();
 	}
 
 	private static void beanNameAware(ApplicationContext context) {
