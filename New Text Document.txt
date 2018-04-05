@@ -72,3 +72,13 @@ Global session - New bean per global Http session (portlet context)
 
 Single JVM -> Multiple Spring container is possible -> One instance per container in case of singleton
 
+------------------------------------------------------------------------------------------------------------------------
+
+problem:
+
+Define triangle as singleton. Even though, pointA is defined as prototype. It wont be created again and again since points will be created when triangle is created
+when container is initialized.
+
+==> need access for the application context to create multiple instances for prototype.
+get access to application context by implementing ApplicationContextAware interface.
+

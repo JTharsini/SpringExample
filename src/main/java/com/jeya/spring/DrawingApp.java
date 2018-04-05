@@ -27,8 +27,15 @@ public class DrawingApp {
 		//collectionsAsAttributes(context);
 		//autoWireByName(context);
 		//autoWireByType(context);
-		autoWireByConstructor(context);
+		//autoWireByConstructor(context);
+		applicationContextAware(context);
 		((ClassPathXmlApplicationContext) context).close();
+	}
+
+	private static void applicationContextAware(ApplicationContext context) {
+		TriangleWithPoints5 triangleWithPoints5 = (TriangleWithPoints5) context.getBean("triangleWithPoints5");
+		triangleWithPoints5.initializePoints();
+		triangleWithPoints5.draw();
 	}
 
 	private static void autoWireByConstructor(ApplicationContext context) {

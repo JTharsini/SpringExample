@@ -7,7 +7,7 @@
 		<property name="type" value="Equilateral"></property>		<!-- by setter -->
 	</bean>
 
-	<bean id="triangle2" class="com.jeya.spring.Triangle2" scope="prototype">
+	<bean id="triangle2" class="com.jeya.spring.Triangle2">
 		<constructor-arg value="Equilateral"></constructor-arg>	<!-- by constructor -->
 	</bean>
 
@@ -84,17 +84,17 @@
 	<bean id="triangleWithPoints3" class="com.jeya.spring.TriangleWithPoints3" autowire="byName">
 	</bean>
 	
-	<bean id="pointA" class="com.jeya.spring.Point">
+	<bean id="pointA" class="com.jeya.spring.Point" scope="prototype">
 		<property name="x" value="-25"></property>
 		<property name="y" value="0"></property>
 	</bean>
 	
-	<bean id="pointB" class="com.jeya.spring.Point">
+	<bean id="pointB" class="com.jeya.spring.Point" scope="prototype">
 		<property name="x" value="25"></property>
 		<property name="y" value="0"></property>
 	</bean>
 	
-	<bean id="pointC" class="com.jeya.spring.Point">
+	<bean id="pointC" class="com.jeya.spring.Point" scope="prototype">
 		<property name="x" value="0"></property>
 		<property name="y" value="0"></property>
 	</bean>
@@ -118,6 +118,9 @@
 	</bean>
 	
 	<bean id="triangleWithPoints4" class="com.jeya.spring.TriangleWithPoints4" autowire="constructor">
+	</bean>
+	
+	<bean id="triangleWithPoints5" class="com.jeya.spring.TriangleWithPoints5">
 	</bean>
 	
 	<alias name="triangle7" alias="triangle-alias"></alias>
