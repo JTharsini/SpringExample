@@ -18,6 +18,10 @@
 		<property name="y" value="0"></property>
 	</bean>
 	
+	<bean id="radius" class="com.jeya.spring.Radius" scope="prototype">
+		<property name="value" value="20"></property>
+	</bean>
+	
 	<bean id="circle5" class="com.jeya.spring.Circle5">
 	</bean>
 	
