@@ -111,3 +111,10 @@ Separate class
 
 -----------------------------------------------------------------------------------------------------------------------
 
+Application doesn't know which implementation it is using to draw
+
+business services: first interface. based on interface view -> then implementation for interface
+change on implementation => doesn't need to change classes which are depended on the changed class
+
+-----------------------------------------------------------------------------------------------------------------------
+

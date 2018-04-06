@@ -3,7 +3,7 @@
     "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 
 <beans default-init-method="myInit" default-destroy-method="myDestroy">
-		<bean id="triangleWithPoints3" class="com.jeya.spring.TriangleWithPoints3" autowire="byName">
+	<bean id="triangleWithPoints3" class="com.jeya.spring.TriangleWithPoints3" autowire="byName">
 	</bean>
 	
 	<bean id="pointA" class="com.jeya.spring.Point" scope="prototype">
@@ -25,6 +25,13 @@
 	</bean>
 	
 	<bean class="com.jeya.spring.springspecific.MyBeanFactoryPostProcessor">
+	</bean>
+	
+	<bean id="triangleWithPoints15" class="com.jeya.spring.TriangleWithPoints15" autowire="byName">
+	</bean>
+	
+	<bean id="circle" class="com.jeya.spring.Circle">
+		<property name="center" ref="pointB"></property>
 	</bean>
 	
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">

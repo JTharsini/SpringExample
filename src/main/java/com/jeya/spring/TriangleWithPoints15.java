@@ -1,16 +1,9 @@
 package com.jeya.spring;
 
-import org.springframework.beans.factory.BeanNameAware;
-
-public class TriangleWithPoints6 implements BeanNameAware {
+public class TriangleWithPoints15 implements Shape {
 	private Point pointA;
 	private Point pointB;
 	private Point pointC;
-	
-	public TriangleWithPoints6()
-	{
-		
-	}
 
 	public Point getPointA() {
 		return pointA;
@@ -41,10 +34,5 @@ public class TriangleWithPoints6 implements BeanNameAware {
 		System.out.println("Point B = (" + getPointB().getX() + ", " + getPointB().getY() + ")");
 		System.out.println("Point C = (" + getPointC().getX() + ", " + getPointC().getY() + ")");
 
-	}
-
-	@Override
-	public void setBeanName(String beanName) {
-		System.out.println("Bean Name : " + beanName);
 	}
 }

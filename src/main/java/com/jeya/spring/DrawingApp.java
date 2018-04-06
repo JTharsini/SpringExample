@@ -34,10 +34,19 @@ public class DrawingApp {
 		//beanNameAware(context);
 		//beanDefinitionInheritancea(context);
 		//callBackMethods(context);
-		placeHolderFromPropertiesFile(context);
+		//placeHolderFromPropertiesFile(context);
+		codingToInterfaces(context);
 		((ClassPathXmlApplicationContext) context).close(); // suitable only for desktop application
 	}
 	
+	private static void codingToInterfaces(AbstractApplicationContext context) {
+		Shape shape1 = (Shape) context.getBean("triangleWithPoints15");
+		shape1.draw();
+		
+		Shape shape2 = (Shape) context.getBean("circle");
+		shape2.draw();
+	}
+
 	private static void placeHolderFromPropertiesFile(ApplicationContext context) {
 		TriangleWithPoints3 triangleWithPoints3 = (TriangleWithPoints3) context.getBean("triangleWithPoints3");
 		triangleWithPoints3.draw();
