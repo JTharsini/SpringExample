@@ -19,7 +19,7 @@ public class DrawingApp {
 		BeanFactory is suitable only when resources are so crucial
 		*/
 		
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforcomponentannotation.xml");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlformessagesource.xml");
 		context.registerShutdownHook();
 		//getByIdDependencyInjection(context);
 		//getByIdConstructorInjection(context);
@@ -39,10 +39,19 @@ public class DrawingApp {
 		//requiredAnnotation(context);
 		//autoWiring(context);
 		//annotationsJSR250(context);
-		componentAnnotation(context); // use xmlforcomponentannotation.xml for this
+		//componentAnnotation(context); // use xmlforcomponentannotation.xml for this
+		usageOfResourceBundleMessageSource(context); // use xmlformessagesource.xml for this
 		((ClassPathXmlApplicationContext) context).close(); // suitable only for desktop application
 	}
 	
+	private static void usageOfResourceBundleMessageSource(AbstractApplicationContext context) {
+		String message = context.getMessage("greeting", null, "Default Message if it doesn't exist", null);
+		System.out.println(message);
+		
+		Shape shape = (Shape) context.getBean("circle8");
+		shape.draw();
+	}
+
 	private static void componentAnnotation(AbstractApplicationContext context) {
 		Shape shape = (Shape) context.getBean("circle7");
 	}
