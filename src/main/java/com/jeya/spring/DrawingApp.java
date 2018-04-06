@@ -19,7 +19,7 @@ public class DrawingApp {
 		BeanFactory is suitable only when resources are so crucial
 		*/
 		
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforlifecycleannotation.xml");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforcomponentannotation.xml");
 		context.registerShutdownHook();
 		//getByIdDependencyInjection(context);
 		//getByIdConstructorInjection(context);
@@ -38,10 +38,15 @@ public class DrawingApp {
 		//codingToInterfaces(context);
 		//requiredAnnotation(context);
 		//autoWiring(context);
-		annotationsJSR250(context);
+		//annotationsJSR250(context);
+		componentAnnotation(context); // use xmlforcomponentannotation.xml for this
 		((ClassPathXmlApplicationContext) context).close(); // suitable only for desktop application
 	}
 	
+	private static void componentAnnotation(AbstractApplicationContext context) {
+		Shape shape = (Shape) context.getBean("circle7");
+	}
+
 	private static void annotationsJSR250(AbstractApplicationContext context) {
 		//resourceAnnotation(context); // use xmlforresourceannotation.xml for this
 		lifeCycleMethodsAnnotation(context); // use xmlforlifecycleannotation.xml for this
