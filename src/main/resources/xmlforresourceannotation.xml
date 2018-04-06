@@ -9,7 +9,6 @@
 	</bean>
 	
 	<bean id="pointA" class="com.jeya.spring.Point" scope="prototype">
-		<qualifier value="circleRelated"></qualifier>
 		<property name="x" value="-25"></property>
 		<property name="y" value="0"></property>
 	</bean>
@@ -19,7 +18,7 @@
 		<property name="y" value="0"></property>
 	</bean>
 	
-	<bean id="circle4" class="com.jeya.spring.Circle4">
+	<bean id="circle5" class="com.jeya.spring.Circle5">
 	</bean>
 	
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">

@@ -19,7 +19,7 @@ public class DrawingApp {
 		BeanFactory is suitable only when resources are so crucial
 		*/
 		
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforautowiringmultipleintypebyqualifier.xml");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforresourceannotation.xml");
 		context.registerShutdownHook();
 		//getByIdDependencyInjection(context);
 		//getByIdConstructorInjection(context);
@@ -37,14 +37,24 @@ public class DrawingApp {
 		//placeHolderFromPropertiesFile(context);
 		//codingToInterfaces(context);
 		//requiredAnnotation(context);
-		autoWiring(context);
+		//autoWiring(context);
+		annotationsJSR250(context);
 		((ClassPathXmlApplicationContext) context).close(); // suitable only for desktop application
 	}
 	
+	private static void annotationsJSR250(AbstractApplicationContext context) {
+		resourceAnnotation(context); // use xmlforresourceannotation.xml for this
+	}
+
+	private static void resourceAnnotation(AbstractApplicationContext context) {
+		Shape shape = (Shape) context.getBean("circle5");
+		shape.draw();
+	}
+
 	private static void autoWiring(AbstractApplicationContext context) {
 		//autoWiringOnlyOneInThatType(context);// use xmlforautowiringonlyoneintype.xml for this
 		//autoWiringMultipleInThatTypeButNameSame(context); // use xmlforautowiringmultipleintype.xml for this
-		autoWiringMultipleInThatType(context); // use xmlforautowiringmultipleintypebyqualifier.xml for this
+		//autoWiringMultipleInThatType(context); // use xmlforautowiringmultipleintypebyqualifier.xml for this
 	}
 
 	private static void autoWiringMultipleInThatType(AbstractApplicationContext context) {
