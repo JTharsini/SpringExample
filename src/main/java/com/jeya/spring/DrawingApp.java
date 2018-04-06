@@ -19,7 +19,7 @@ public class DrawingApp {
 		BeanFactory is suitable only when resources are so crucial
 		*/
 		
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforautowiringmultipleintype.xml");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforautowiringmultipleintypebyqualifier.xml");
 		context.registerShutdownHook();
 		//getByIdDependencyInjection(context);
 		//getByIdConstructorInjection(context);
@@ -43,7 +43,13 @@ public class DrawingApp {
 	
 	private static void autoWiring(AbstractApplicationContext context) {
 		//autoWiringOnlyOneInThatType(context);// use xmlforautowiringonlyoneintype.xml for this
-		autoWiringMultipleInThatTypeButNameSame(context); // use xmlforautowiringmultipleintype.xml for this
+		//autoWiringMultipleInThatTypeButNameSame(context); // use xmlforautowiringmultipleintype.xml for this
+		autoWiringMultipleInThatType(context); // use xmlforautowiringmultipleintypebyqualifier.xml for this
+	}
+
+	private static void autoWiringMultipleInThatType(AbstractApplicationContext context) {
+		Shape shape = (Shape) context.getBean("circle4");
+		shape.draw();
 	}
 
 	private static void autoWiringMultipleInThatTypeButNameSame(AbstractApplicationContext context) {
