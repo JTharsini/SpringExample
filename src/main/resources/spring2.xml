@@ -34,13 +34,7 @@
 		<property name="center" ref="pointB"></property>
 	</bean>
 	
-	<bean id="circle2" class="com.jeya.spring.Circle2">
-	</bean>
-	
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations" value="pointsconfig.properties"></property>
-	</bean>
-	
-	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor">
-		
+	</bean>		
 </beans>

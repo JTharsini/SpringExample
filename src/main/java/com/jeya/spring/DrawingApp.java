@@ -19,7 +19,7 @@ public class DrawingApp {
 		BeanFactory is suitable only when resources are so crucial
 		*/
 		
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforautowiringfirst.xml");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforautowiringmultipleintype.xml");
 		context.registerShutdownHook();
 		//getByIdDependencyInjection(context);
 		//getByIdConstructorInjection(context);
@@ -37,16 +37,27 @@ public class DrawingApp {
 		//placeHolderFromPropertiesFile(context);
 		//codingToInterfaces(context);
 		//requiredAnnotation(context);
-		autoWiring(context);// use xmlforautowiringfirst.xml for this
+		autoWiring(context);
 		((ClassPathXmlApplicationContext) context).close(); // suitable only for desktop application
 	}
 	
 	private static void autoWiring(AbstractApplicationContext context) {
+		//autoWiringOnlyOneInThatType(context);// use xmlforautowiringonlyoneintype.xml for this
+		autoWiringMultipleInThatTypeButNameSame(context); // use xmlforautowiringmultipleintype.xml for this
+	}
+
+	private static void autoWiringMultipleInThatTypeButNameSame(AbstractApplicationContext context) {
+		Shape shape = (Shape) context.getBean("circle3");
+		shape.draw();
+	}
+
+	private static void autoWiringOnlyOneInThatType(AbstractApplicationContext context) {
 		Shape shape = (Shape) context.getBean("circle3");
 		shape.draw();
 	}
 
 	private static void requiredAnnotation(AbstractApplicationContext context) {
+		// use requiredannotation.xml for this
 		/**
 		 * Exception in thread "main" org.springframework.beans.factory.BeanCreationException: Error creating bean with name 
 		 * 'circle2' defined in class path resource [spring2.xml]: Initialization of bean failed; nested exception is org.springframework.beans.factory.BeanInitializationException: 
