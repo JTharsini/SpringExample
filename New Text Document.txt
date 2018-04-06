@@ -117,4 +117,3 @@ business services: first interface. based on interface view -> then implementati
 change on implementation => doesn't need to change classes which are depended on the changed class
 
 -----------------------------------------------------------------------------------------------------------------------
-

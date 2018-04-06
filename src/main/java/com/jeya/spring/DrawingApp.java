@@ -35,10 +35,21 @@ public class DrawingApp {
 		//beanDefinitionInheritancea(context);
 		//callBackMethods(context);
 		//placeHolderFromPropertiesFile(context);
-		codingToInterfaces(context);
+		//codingToInterfaces(context);
+		requiredAnnotation(context);
 		((ClassPathXmlApplicationContext) context).close(); // suitable only for desktop application
 	}
 	
+	private static void requiredAnnotation(AbstractApplicationContext context) {
+		/**
+		 * Exception in thread "main" org.springframework.beans.factory.BeanCreationException: Error creating bean with name 
+		 * 'circle2' defined in class path resource [spring2.xml]: Initialization of bean failed; nested exception is org.springframework.beans.factory.BeanInitializationException: 
+		 * Property 'center' is required for bean 'circle2'
+		 */
+		Shape shape = (Shape) context.getBean("circle2");
+		shape.draw();
+	}
+
 	private static void codingToInterfaces(AbstractApplicationContext context) {
 		Shape shape1 = (Shape) context.getBean("triangleWithPoints15");
 		shape1.draw();
