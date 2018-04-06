@@ -19,7 +19,7 @@ public class DrawingApp {
 		BeanFactory is suitable only when resources are so crucial
 		*/
 		
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring2.xml");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforautowiringfirst.xml");
 		context.registerShutdownHook();
 		//getByIdDependencyInjection(context);
 		//getByIdConstructorInjection(context);
@@ -36,10 +36,16 @@ public class DrawingApp {
 		//callBackMethods(context);
 		//placeHolderFromPropertiesFile(context);
 		//codingToInterfaces(context);
-		requiredAnnotation(context);
+		//requiredAnnotation(context);
+		autoWiring(context);// use xmlforautowiringfirst.xml for this
 		((ClassPathXmlApplicationContext) context).close(); // suitable only for desktop application
 	}
 	
+	private static void autoWiring(AbstractApplicationContext context) {
+		Shape shape = (Shape) context.getBean("circle3");
+		shape.draw();
+	}
+
 	private static void requiredAnnotation(AbstractApplicationContext context) {
 		/**
 		 * Exception in thread "main" org.springframework.beans.factory.BeanCreationException: Error creating bean with name 
