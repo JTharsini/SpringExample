@@ -40,10 +40,16 @@ public class DrawingApp {
 		//autoWiring(context);
 		//annotationsJSR250(context);
 		//componentAnnotation(context); // use xmlforcomponentannotation.xml for this
-		usageOfResourceBundleMessageSource(context); // use xmlformessagesource.xml for this
+		//usageOfResourceBundleMessageSource(context); // use xmlformessagesource.xml for this
+		eventHandling(context);
 		((ClassPathXmlApplicationContext) context).close(); // suitable only for desktop application
 	}
 	
+	private static void eventHandling(AbstractApplicationContext context) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	private static void usageOfResourceBundleMessageSource(AbstractApplicationContext context) {
 		messageByApplicationContext(context);
 		messageByResourceBundleMessageSource(context); // with parameter substitution
