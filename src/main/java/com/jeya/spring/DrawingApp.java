@@ -4,6 +4,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.jeya.aop.service.ShapeService;
+
 public class DrawingApp {
 
 	public static void main(String[] args) {
@@ -19,7 +21,7 @@ public class DrawingApp {
 		BeanFactory is suitable only when resources are so crucial
 		*/
 		
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforeventhandling.xml");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforAop.xml");
 		context.registerShutdownHook();
 		//getByIdDependencyInjection(context);
 		//getByIdConstructorInjection(context);
@@ -42,13 +44,18 @@ public class DrawingApp {
 		//componentAnnotation(context); // use xmlforcomponentannotation.xml for this
 		//usageOfResourceBundleMessageSource(context); // use xmlformessagesource.xml for this
 		//eventHandling(context);
-		aspectOrientedProgrammingOrAOP(context);
+		aspectOrientedProgrammingOrAOP(context); // use xmlforAop.xml for this
 		((ClassPathXmlApplicationContext) context).close(); // suitable only for desktop application
 	}
 	
 	private static void aspectOrientedProgrammingOrAOP(AbstractApplicationContext context) {
-		// TODO Auto-generated method stub
-		
+		aopForMethodAvailableInAllClass(context);
+	}
+
+	private static void aopForMethodAvailableInAllClass(AbstractApplicationContext context) {
+		ShapeService shapeService = context.getBean("shapeService", ShapeService.class); // no need to caste
+		System.out.println(shapeService.getCircle().getName());
+		System.out.println(shapeService.getTriangle().getName());
 	}
 
 	private static void eventHandling(AbstractApplicationContext context) {
