@@ -41,10 +41,16 @@ public class DrawingApp {
 		//annotationsJSR250(context);
 		//componentAnnotation(context); // use xmlforcomponentannotation.xml for this
 		//usageOfResourceBundleMessageSource(context); // use xmlformessagesource.xml for this
-		eventHandling(context);
+		//eventHandling(context);
+		aspectOrientedProgrammingOrAOP(context);
 		((ClassPathXmlApplicationContext) context).close(); // suitable only for desktop application
 	}
 	
+	private static void aspectOrientedProgrammingOrAOP(AbstractApplicationContext context) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	private static void eventHandling(AbstractApplicationContext context) {
 		eventByApplication(context);
 		customEvent(context); //use xmlforeventhandling.xml for this
