@@ -45,11 +45,18 @@ public class DrawingApp {
 	}
 	
 	private static void usageOfResourceBundleMessageSource(AbstractApplicationContext context) {
-		String message = context.getMessage("greeting", null, "Default Message if it doesn't exist", null);
-		System.out.println(message);
-		
+		messageByApplicationContext(context);
+		messageByResourceBundleMessageSource(context); // with parameter substitution
+	}
+
+	private static void messageByResourceBundleMessageSource(AbstractApplicationContext context) {
 		Shape shape = (Shape) context.getBean("circle8");
 		shape.draw();
+	}
+
+	private static void messageByApplicationContext(AbstractApplicationContext context) {
+		String message = context.getMessage("greeting", null, "Default Message if it doesn't exist", null);
+		System.out.println(message);
 	}
 
 	private static void componentAnnotation(AbstractApplicationContext context) {

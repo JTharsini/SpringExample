@@ -29,7 +29,8 @@
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basenames">
 			<list>
-				<value>mymessages</value>
+				<value>mymessages_en</value>
+				<value>mymessages_ja</value>
 			</list>
 		</property>
 	</bean>
