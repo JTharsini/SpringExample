@@ -19,7 +19,7 @@ public class DrawingApp {
 		BeanFactory is suitable only when resources are so crucial
 		*/
 		
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlformessagesource.xml");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforeventhandling.xml");
 		context.registerShutdownHook();
 		//getByIdDependencyInjection(context);
 		//getByIdConstructorInjection(context);
@@ -46,8 +46,17 @@ public class DrawingApp {
 	}
 	
 	private static void eventHandling(AbstractApplicationContext context) {
-		// TODO Auto-generated method stub
-		
+		eventByApplication(context);
+		customEvent(context); //use xmlforeventhandling.xml for this
+	}
+
+	private static void customEvent(AbstractApplicationContext context) {
+		Shape shape = (Shape) context.getBean("circle9");
+		shape.draw();
+	}
+
+	private static void eventByApplication(AbstractApplicationContext context) {
+		//MyEventListener class has been added to demonstrate this
 	}
 
 	private static void usageOfResourceBundleMessageSource(AbstractApplicationContext context) {
