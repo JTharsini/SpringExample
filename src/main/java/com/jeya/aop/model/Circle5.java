@@ -14,4 +14,8 @@ public class Circle5 {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public float grrRadius() {
+		return 10.5f;
+	}
 }

@@ -70,6 +70,7 @@ public class DrawingApp {
 		ShapeService5 shapeService5 = context.getBean("shapeService5", ShapeService5.class);
 		System.out.println(shapeService5.getCircle5().getName());
 		System.out.println(shapeService5.getCircle5().getRadius());
+		System.out.println(shapeService5.getCircle5().grrRadius());
 	}
 
 	private static void multipleAspectsForAMethod(AbstractApplicationContext context) {
