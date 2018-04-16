@@ -6,13 +6,17 @@
 	   xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<bean name="circle5" class="com.jeya.aop.model.Circle5">
-		<property name="name" value="Circle5 name"></property>
+	<bean name="circle6" class="com.jeya.aop.model.Circle6">
+		<property name="name" value="Circle6 name"></property>
 	</bean>
 	
-	<bean name="shapeService5" class="com.jeya.aop.service.ShapeService5" autowire="byName"></bean>
+	<bean name="triangle3" class="com.jeya.aop.model.Triangle3">
+		<property name="name" value="Triangle3 name"></property>
+	</bean>
 	
-	<bean name="loggingAspect5" class="com.jeya.aop.aspect.LoggingAspect5"></bean>
+	<bean name="shapeService6" class="com.jeya.aop.service.ShapeService6" autowire="byName"></bean>
+	
+	<bean name="loggingAspect6" class="com.jeya.aop.aspect.LoggingAspect6"></bean>
 
 	<aop:aspectj-autoproxy proxy-target-class="true"/>
 </beans>

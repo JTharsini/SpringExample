@@ -9,6 +9,7 @@ import com.jeya.aop.service.ShapeService2;
 import com.jeya.aop.service.ShapeService3;
 import com.jeya.aop.service.ShapeService4;
 import com.jeya.aop.service.ShapeService5;
+import com.jeya.aop.service.ShapeService6;
 
 public class DrawingApp {
 
@@ -25,7 +26,7 @@ public class DrawingApp {
 		BeanFactory is suitable only when resources are so crucial
 		*/
 		
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforAspectToBeExecutedInAllMethodsOfAClass.xml");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforAspectToIdentifyExecutingMethod.xml");
 		context.registerShutdownHook();
 		//getByIdDependencyInjection(context);
 		//getByIdConstructorInjection(context);
@@ -63,7 +64,15 @@ public class DrawingApp {
 		//aspectOrientedProgrammingForAClass(context); // use xmlforAopForAClass.xml for this
 		//aspectOrientedProgrammingForAllGetters(context); // use xmlforAopForAllGetters.xml for this
 		//multipleAspectsForAMethod(context); // use xmlforMultipleAspectsForAMethod.xml for this
-		aspectToBeExecutedInAllMethodsOfAClass(context); // use xmlforAspectToBeExecutedInAllMethodsOfAClass.xml for this
+		//aspectToBeExecutedInAllMethodsOfAClass(context); // use xmlforAspectToBeExecutedInAllMethodsOfAClass.xml for this
+		identifyExecutingMethod(context);// use xmlforAspectToIdentifyExecutingMethod.xml for this
+	}
+
+	private static void identifyExecutingMethod(AbstractApplicationContext context) {
+		ShapeService6 shapeService6 = context.getBean("shapeService6", ShapeService6.class);
+		System.out.println(shapeService6.getCircle6().getName());
+		System.out.println(shapeService6.getCircle6().getRadius());
+		System.out.println(shapeService6.getCircle6().grrRadius());
 	}
 
 	private static void aspectToBeExecutedInAllMethodsOfAClass(AbstractApplicationContext context) {

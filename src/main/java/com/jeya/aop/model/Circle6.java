@@ -1,13 +1,21 @@
 package com.jeya.aop.model;
 
-public class Triangle4 {
+public class Circle6 {
 	private String name;
 
 	public String getName() {
 		return name;
 	}
+	
+	public float getRadius() {
+		return 10.5f;
+	}
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public float grrRadius() {
+		return 10.5f;
 	}
 }
