@@ -6,6 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.jeya.aop.service.ShapeService;
 import com.jeya.aop.service.ShapeService2;
+import com.jeya.aop.service.ShapeService3;
 
 public class DrawingApp {
 
@@ -22,7 +23,7 @@ public class DrawingApp {
 		BeanFactory is suitable only when resources are so crucial
 		*/
 		
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforAopForAClass.xml");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforAopForAllGetters.xml");
 		context.registerShutdownHook();
 		//getByIdDependencyInjection(context);
 		//getByIdConstructorInjection(context);
@@ -45,7 +46,7 @@ public class DrawingApp {
 		//componentAnnotation(context); // use xmlforcomponentannotation.xml for this
 		//usageOfResourceBundleMessageSource(context); // use xmlformessagesource.xml for this
 		//eventHandling(context);
-		aspectOrientedProgrammingOrAOP(context); // use xmlforAop.xml for this
+		aspectOrientedProgrammingOrAOP(context);
 		((ClassPathXmlApplicationContext) context).close(); // suitable only for desktop application
 	}
 	
@@ -56,8 +57,17 @@ public class DrawingApp {
 	}
 
 	private static void aspectOrientedProgrammingOrAOP(AbstractApplicationContext context) {
-		//aopForMethodAvailableInAllClass(context);
-		aspectOrientedProgrammingForAClass(context); // use xmlforAopForAClass.xml for this
+		//aopForMethodAvailableInAllClass(context);  // use xmlforAop.xml for this
+		//aspectOrientedProgrammingForAClass(context); // use xmlforAopForAClass.xml for this
+		aspectOrientedProgrammingForAllGetters(context); // use xmlforAopForAllGetters.xml for this
+	}
+
+	private static void aspectOrientedProgrammingForAllGetters(AbstractApplicationContext context) {
+		ShapeService3 shapeService3 = context.getBean("shapeService3", ShapeService3.class);
+		System.out.println(shapeService3.getCircle3().getName());
+		System.out.println(shapeService3.getTriangle2().getName());
+		// advice will be printed 4 times: because before the execution of getCircle3 and getTriangle2 methods also
+		// aspect will be executed
 	}
 
 	private static void aopForMethodAvailableInAllClass(AbstractApplicationContext context) {
