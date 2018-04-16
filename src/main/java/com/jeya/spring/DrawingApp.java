@@ -8,6 +8,7 @@ import com.jeya.aop.service.ShapeService;
 import com.jeya.aop.service.ShapeService2;
 import com.jeya.aop.service.ShapeService3;
 import com.jeya.aop.service.ShapeService4;
+import com.jeya.aop.service.ShapeService5;
 
 public class DrawingApp {
 
@@ -24,7 +25,7 @@ public class DrawingApp {
 		BeanFactory is suitable only when resources are so crucial
 		*/
 		
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforMultipleAspectsForAMethod.xml");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforAspectToBeExecutedInAllMethodsOfAClass.xml");
 		context.registerShutdownHook();
 		//getByIdDependencyInjection(context);
 		//getByIdConstructorInjection(context);
@@ -61,7 +62,14 @@ public class DrawingApp {
 		//aopForMethodAvailableInAllClass(context);  // use xmlforAop.xml for this
 		//aspectOrientedProgrammingForAClass(context); // use xmlforAopForAClass.xml for this
 		//aspectOrientedProgrammingForAllGetters(context); // use xmlforAopForAllGetters.xml for this
-		multipleAspectsForAMethod(context); // use xmlforMultipleAspectsForAMethod.xml for this
+		//multipleAspectsForAMethod(context); // use xmlforMultipleAspectsForAMethod.xml for this
+		aspectToBeExecutedInAllMethodsOfAClass(context); // use xmlforAspectToBeExecutedInAllMethodsOfAClass.xml for this
+	}
+
+	private static void aspectToBeExecutedInAllMethodsOfAClass(AbstractApplicationContext context) {
+		ShapeService5 shapeService5 = context.getBean("shapeService5", ShapeService5.class);
+		System.out.println(shapeService5.getCircle5().getName());
+		System.out.println(shapeService5.getCircle5().getRadius());
 	}
 
 	private static void multipleAspectsForAMethod(AbstractApplicationContext context) {
