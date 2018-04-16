@@ -73,6 +73,7 @@ public class DrawingApp {
 		System.out.println(shapeService6.getCircle6().getName());
 		System.out.println(shapeService6.getCircle6().getRadius());
 		System.out.println(shapeService6.getCircle6().grrRadius());
+		shapeService6.getCircle6().setBrr("Miyaav");
 	}
 
 	private static void aspectToBeExecutedInAllMethodsOfAClass(AbstractApplicationContext context) {

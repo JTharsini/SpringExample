@@ -26,4 +26,10 @@ public class LoggingAspect6 {
 	{
 		
 	}
+	
+	@Before("args(omg)") // any name is allowed, but need to use same name in argument as well
+	public void stringArgumentMethods(String omg)
+	{
+		System.out.println("A method which takes String argument " + omg + " will be called");
+	}
 }

@@ -18,4 +18,8 @@ public class Circle6 {
 	public float grrRadius() {
 		return 10.5f;
 	}
+
+	public void setBrr(String string) {
+		System.out.println("brr : " + string);
+	}
 }
