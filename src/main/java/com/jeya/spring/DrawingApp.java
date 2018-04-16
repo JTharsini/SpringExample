@@ -5,6 +5,7 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.jeya.aop.service.ShapeService;
+import com.jeya.aop.service.ShapeService2;
 
 public class DrawingApp {
 
@@ -21,7 +22,7 @@ public class DrawingApp {
 		BeanFactory is suitable only when resources are so crucial
 		*/
 		
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforAop.xml");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforAopForAClass.xml");
 		context.registerShutdownHook();
 		//getByIdDependencyInjection(context);
 		//getByIdConstructorInjection(context);
@@ -48,8 +49,15 @@ public class DrawingApp {
 		((ClassPathXmlApplicationContext) context).close(); // suitable only for desktop application
 	}
 	
+	private static void aspectOrientedProgrammingForAClass(AbstractApplicationContext context) {
+		ShapeService2 shapeService2 = context.getBean("shapeService2", ShapeService2.class); // no need to caste
+		System.out.println(shapeService2.getCircle2().getName());
+		System.out.println(shapeService2.getTriangle().getName());
+	}
+
 	private static void aspectOrientedProgrammingOrAOP(AbstractApplicationContext context) {
-		aopForMethodAvailableInAllClass(context);
+		//aopForMethodAvailableInAllClass(context);
+		aspectOrientedProgrammingForAClass(context); // use xmlforAopForAClass.xml for this
 	}
 
 	private static void aopForMethodAvailableInAllClass(AbstractApplicationContext context) {
