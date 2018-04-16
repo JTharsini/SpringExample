@@ -10,6 +10,7 @@ import com.jeya.aop.service.ShapeService3;
 import com.jeya.aop.service.ShapeService4;
 import com.jeya.aop.service.ShapeService5;
 import com.jeya.aop.service.ShapeService6;
+import com.jeya.aop.service.ShapeService7;
 
 public class DrawingApp {
 
@@ -26,7 +27,7 @@ public class DrawingApp {
 		BeanFactory is suitable only when resources are so crucial
 		*/
 		
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforAspectToIdentifyExecutingMethod.xml");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforAspectTypes.xml");
 		context.registerShutdownHook();
 		//getByIdDependencyInjection(context);
 		//getByIdConstructorInjection(context);
@@ -65,7 +66,19 @@ public class DrawingApp {
 		//aspectOrientedProgrammingForAllGetters(context); // use xmlforAopForAllGetters.xml for this
 		//multipleAspectsForAMethod(context); // use xmlforMultipleAspectsForAMethod.xml for this
 		//aspectToBeExecutedInAllMethodsOfAClass(context); // use xmlforAspectToBeExecutedInAllMethodsOfAClass.xml for this
-		identifyExecutingMethod(context);// use xmlforAspectToIdentifyExecutingMethod.xml for this
+		//identifyExecutingMethod(context);// use xmlforAspectToIdentifyExecutingMethod.xml for this
+		aspectTypes(context); // use xmlforAspectTypes.xml for this
+	}
+
+	private static void aspectTypes(AbstractApplicationContext context) {
+		/**
+		 * first "Setter is invoked" by spring container initialization
+		 */
+		ShapeService7 shapeService7 = context.getBean("shapeService7", ShapeService7.class);
+		shapeService7.getCircle7().setName("Miyaav");
+		System.out.println(shapeService7.getCircle7().getName());
+		shapeService7.getCircle7().setNameAndThrow("Grrr");
+		shapeService7.getCircle7().setNameAndReturn("nrrr");
 	}
 
 	private static void identifyExecutingMethod(AbstractApplicationContext context) {

@@ -117,3 +117,7 @@ business services: first interface. based on interface view -> then implementati
 change on implementation => doesn't need to change classes which are depended on the changed class
 
 -----------------------------------------------------------------------------------------------------------------------
+
+Aspect Oriented Programming or AOP in Spring:
+
+Aspect will be invoked only when a method is invoked by programmer : Not for the call by Spring container
