@@ -7,6 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.jeya.aop.service.ShapeService;
 import com.jeya.aop.service.ShapeService2;
 import com.jeya.aop.service.ShapeService3;
+import com.jeya.aop.service.ShapeService4;
 
 public class DrawingApp {
 
@@ -23,7 +24,7 @@ public class DrawingApp {
 		BeanFactory is suitable only when resources are so crucial
 		*/
 		
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforAopForAllGetters.xml");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforMultipleAspectsForAMethod.xml");
 		context.registerShutdownHook();
 		//getByIdDependencyInjection(context);
 		//getByIdConstructorInjection(context);
@@ -51,7 +52,7 @@ public class DrawingApp {
 	}
 	
 	private static void aspectOrientedProgrammingForAClass(AbstractApplicationContext context) {
-		ShapeService2 shapeService2 = context.getBean("shapeService2", ShapeService2.class); // no need to caste
+		ShapeService2 shapeService2 = context.getBean("shapeService2", ShapeService2.class);
 		System.out.println(shapeService2.getCircle2().getName());
 		System.out.println(shapeService2.getTriangle().getName());
 	}
@@ -59,7 +60,14 @@ public class DrawingApp {
 	private static void aspectOrientedProgrammingOrAOP(AbstractApplicationContext context) {
 		//aopForMethodAvailableInAllClass(context);  // use xmlforAop.xml for this
 		//aspectOrientedProgrammingForAClass(context); // use xmlforAopForAClass.xml for this
-		aspectOrientedProgrammingForAllGetters(context); // use xmlforAopForAllGetters.xml for this
+		//aspectOrientedProgrammingForAllGetters(context); // use xmlforAopForAllGetters.xml for this
+		multipleAspectsForAMethod(context); // use xmlforMultipleAspectsForAMethod.xml for this
+	}
+
+	private static void multipleAspectsForAMethod(AbstractApplicationContext context) {
+		ShapeService4 shapeService4 = context.getBean("shapeService4", ShapeService4.class);
+		System.out.println(shapeService4.getCircle4().getName());
+		System.out.println(shapeService4.getTriangle3().getName());
 	}
 
 	private static void aspectOrientedProgrammingForAllGetters(AbstractApplicationContext context) {
