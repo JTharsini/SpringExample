@@ -1,8 +1,10 @@
 package com.jeya.aop.aspect;
 
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -32,9 +34,30 @@ public class LoggingAspect7 {
 	public void loggingAdvice4(String name, RuntimeException ex) {// or Object returnedType
 		System.out.println("stringAsArgument after throwing : " + ex);
 	}
+	
+	@Around(value = "allCircleMethods()")
+	public Object myAroundAdvice(ProceedingJoinPoint proceedingJoinPoint) // argument is compulsory
+	{
+		Object returnValue = null;
+		System.out.println("@Around before proceed");
+		try {
+			returnValue = proceedingJoinPoint.proceed();
+		} catch (Throwable e) {
+			System.out.println("Error"); // thrown exception will be caught here
+		} // compulsory // target method execution : if we want to skip, we can skip target method execution
+		// for example, if a condition is true, run target method : kind of intercepter
+		System.out.println("@Around after proceed");
+		return returnValue;
+	}
 
 	@Pointcut("within(com.jeya.aop.model.Circle7)")
 	public void allCircleMethods() {
 
+	}
+	
+	@Pointcut("execution(* get*(..))")
+	public void allGetters()// dummy method to hold this point cut
+	{
+		
 	}
 }

@@ -67,7 +67,13 @@ public class DrawingApp {
 		//multipleAspectsForAMethod(context); // use xmlforMultipleAspectsForAMethod.xml for this
 		//aspectToBeExecutedInAllMethodsOfAClass(context); // use xmlforAspectToBeExecutedInAllMethodsOfAClass.xml for this
 		//identifyExecutingMethod(context);// use xmlforAspectToIdentifyExecutingMethod.xml for this
-		aspectTypes(context); // use xmlforAspectTypes.xml for this
+		//aspectTypes(context); // use xmlforAspectTypes.xml for this
+		aroundType(context);
+	}
+
+	private static void aroundType(AbstractApplicationContext context) {
+		ShapeService7 shapeService7 = context.getBean("shapeService7", ShapeService7.class);
+		System.out.println(shapeService7.getCircle7().getName());
 	}
 
 	private static void aspectTypes(AbstractApplicationContext context) {

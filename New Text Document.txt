@@ -121,3 +121,14 @@ change on implementation => doesn't need to change classes which are depended on
 Aspect Oriented Programming or AOP in Spring:
 
 Aspect will be invoked only when a method is invoked by programmer : Not for the call by Spring container
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Advice types: after, before, around
+
+Need to choose least powerful option to write: before or after over around
+
+Advantage of "@Around":
+more control
+different code
+can be shared by before and after code
