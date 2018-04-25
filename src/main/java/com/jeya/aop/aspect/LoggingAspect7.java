@@ -56,6 +56,7 @@ public class LoggingAspect7 {
 	}
 	
 	@Pointcut("execution(* get*(..))")
+	// @Pointcut("execution(* com.jeya.service.*Service.*(..)")
 	public void allGetters()// dummy method to hold this point cut
 	{
 		

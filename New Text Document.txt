@@ -132,3 +132,8 @@ Advantage of "@Around":
 more control
 different code
 can be shared by before and after code
+
+Best practices:
+1. aspect in package name
+2. aspect in class name
+Naming convention in class name (Eg: appended with Service in class name for Service) facilitate to have easy and enough pointcut

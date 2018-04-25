@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+		
+	<bean name="triangle3" class="com.jeya.aop.model.Triangle3">
+		<property name="name" value="Triangle3 name"></property>
+	</bean>
+	
+	<bean name="circle8" class="com.jeya.aop.model.Circle8">
+		<property name="name" value="Circle8 name"></property>
+	</bean>
+	
+	<bean name="shapeService8" class="com.jeya.aop.service.ShapeService8" autowire="byName"></bean>
+	
+	<bean name="loggingAspect8" class="com.jeya.aop.aspect.LoggingAspect8"></bean>
+
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
+</beans>
