@@ -12,6 +12,7 @@ import com.jeya.aop.service.ShapeService5;
 import com.jeya.aop.service.ShapeService6;
 import com.jeya.aop.service.ShapeService7;
 import com.jeya.aop.service.ShapeService8;
+import com.jeya.aop.service.ShapeService9;
 
 public class DrawingApp {
 
@@ -28,7 +29,7 @@ public class DrawingApp {
 		BeanFactory is suitable only when resources are so crucial
 		*/
 		
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforAopCustomAdviceAnnotation.xml");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("xmlforAopConfigurationByXML.xml");
 		context.registerShutdownHook();
 		//getByIdDependencyInjection(context);
 		//getByIdConstructorInjection(context);
@@ -70,7 +71,13 @@ public class DrawingApp {
 		//identifyExecutingMethod(context);// use xmlforAspectToIdentifyExecutingMethod.xml for this
 		//aspectTypes(context); // use xmlforAspectTypes.xml for this
 		//aroundType(context); // use xmlforAspectTypes.xml for this
-		customAdviceAnnotation(context); // use xmlforAopCustomAdviceAnnotation.xml for this
+		//customAdviceAnnotation(context); // use xmlforAopCustomAdviceAnnotation.xml for this
+		aopConfigurationInXML(context); // use xmlforAopConfigurationByXML.xml for this // LoggingAspect9 configuration has been moved to xml configuration
+	}
+
+	private static void aopConfigurationInXML(AbstractApplicationContext context) {
+		ShapeService9 shapeService9 = context.getBean("shapeService9", ShapeService9.class);
+		System.out.println(shapeService9.getCircle9());
 	}
 
 	private static void customAdviceAnnotation(AbstractApplicationContext context) {

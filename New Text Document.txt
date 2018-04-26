@@ -137,3 +137,16 @@ Best practices:
 1. aspect in package name
 2. aspect in class name
 Naming convention in class name (Eg: appended with Service in class name for Service) facilitate to have easy and enough pointcut
+
+---------------------------------------------------------------------------------------------------------------------------
+Configuration of Aspects in annotation over XML:
+
+-readability
+-simple
+
+Configuration of Aspects in XML over annotation: 
+
+-legacy code support
+-Configuration rather than functionality
+transaction : functionality : annoation
+debugging the logic : configuration : xml
