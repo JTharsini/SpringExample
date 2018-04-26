@@ -4,7 +4,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.jeya.aop.service.FactoryService;
 import com.jeya.aop.service.ShapeService;
+import com.jeya.aop.service.ShapeService10;
 import com.jeya.aop.service.ShapeService2;
 import com.jeya.aop.service.ShapeService3;
 import com.jeya.aop.service.ShapeService4;
@@ -72,7 +74,14 @@ public class DrawingApp {
 		//aspectTypes(context); // use xmlforAspectTypes.xml for this
 		//aroundType(context); // use xmlforAspectTypes.xml for this
 		//customAdviceAnnotation(context); // use xmlforAopCustomAdviceAnnotation.xml for this
-		aopConfigurationInXML(context); // use xmlforAopConfigurationByXML.xml for this // LoggingAspect9 configuration has been moved to xml configuration
+		//aopConfigurationInXML(context); // use xmlforAopConfigurationByXML.xml for this // LoggingAspect9 configuration has been moved to xml configuration
+		aopProxyConcept();
+	}
+
+	private static void aopProxyConcept() {
+		FactoryService factoryService = new FactoryService();
+		ShapeService10 shapeService10 = (ShapeService10)factoryService.getBean("shapeService");
+		shapeService10.getCircle10();
 	}
 
 	private static void aopConfigurationInXML(AbstractApplicationContext context) {

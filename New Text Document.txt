@@ -150,3 +150,11 @@ Configuration of Aspects in XML over annotation:
 -Configuration rather than functionality
 transaction : functionality : annoation
 debugging the logic : configuration : xml
+
+---------------------------------------------------------------------------------------------------------------------------
+
+AOP in Spring is through Proxy:
+- Context : As a bean factory
+- proxy class will be returned to client
+- proxy overrides a method
+so that it can be wrapped or before or after with another piece of code
